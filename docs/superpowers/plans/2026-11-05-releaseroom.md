@@ -1,6 +1,6 @@
 # ReleaseRoom Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** Build and demonstrate a Switch-centered workflow that turns a bug report into a tested patch and a human-approved handoff.
 
@@ -250,27 +250,27 @@ Commit: `docs: add ReleaseRoom setup and demo guide`
 **Interfaces:**
 - Produces an actual Switch room transcript and final review bundle for CASE-001.
 
-- [ ] **Step 1: Install the free runtime inside Ubuntu WSL**
+- [x] **Step 1: Install the free runtime inside Ubuntu WSL**
 
 Install Ubuntu's `docker.io`, Node.js 24/npm if needed, and official Switch Console 0.40.1 Linux `.deb`. Add only the WSL user to its WSL-local `docker` group. Verify package origins and versions. Do not alter the Windows `docker-users` group.
 
-- [ ] **Step 2: Start Switch Console through WSLg and create a local server**
+- [x] **Step 2: Start the official local stack and Gateway**
 
-Use the Console's supported **On this computer** path with local Mattermost. Configure non-conflicting ports if prompted. Confirm the server's `/health` endpoint.
+Use the official pinned Compose stack with Mattermost and the Gateway on separate loopback ports. The WSLg Console capture was unreliable; the official bundled headless controller runs the builder. Confirm the server's `/health` endpoint.
 
-- [ ] **Step 3: Configure Codex and the ReleaseRoom agents**
+- [x] **Step 3: Configure Codex and the ReleaseRoom agents**
 
 Make the existing provider available inside WSL without printing or committing credentials. Register `release-builder` with the repository as its working directory. Register the gatekeeper through a local registration key and store its returned API key only in `.env`.
 
-- [ ] **Step 4: Create the room and run the real scenario**
+- [x] **Step 4: Create the room and run the real scenario**
 
-Create `release-room`, attach the reviewed room instructions, invite both agents, reset CASE-001, post the bug, observe the genuine Codex patch, invoke verification, post the human approval personally, and confirm the exported bundle.
+Create `release-room`, attach the reviewed room instructions, invite both agents, reset CASE-001, post the bug, observe the genuine Codex patch, invoke verification, obtain exact-hash approval from the user, relay it only with explicit authorization and disclosed provenance, and confirm the exported bundle.
 
-- [ ] **Step 5: Capture evidence and run final verification**
+- [x] **Step 5: Capture evidence and run final verification**
 
 Save redacted screenshots/transcript references, exact version output and bundle hashes. Run `npm test && npm run typecheck && npm run build` again and inspect `git status --short`.
 
-- [ ] **Step 6: Commit runtime-safe evidence**
+- [x] **Step 6: Commit runtime-safe evidence**
 
 Commit only redacted evidence and public documentation: `docs: record verified Switch workflow`.
 
@@ -283,15 +283,15 @@ Commit only redacted evidence and public documentation: `docs: record verified S
 **Interfaces:**
 - Produces reviewed title, tagline, story, technology disclosure, repository-link field, video shot list and final checklist.
 
-- [ ] **Step 1: Draft factual submission copy from verified evidence**
+- [x] **Step 1: Draft factual submission copy from verified evidence**
 
 Do not claim deployment, users, time savings or safety properties beyond the controlled demonstration. Disclose Codex/AgentRouter assistance, Switch, Mattermost, Node, TypeScript, Vitest and fictional sample data.
 
-- [ ] **Step 2: Prepare the under-three-minute shot list**
+- [x] **Step 2: Prepare the under-three-minute shot list**
 
 Show the initial failure, Switch room, genuine builder action, independent verification, exact-hash human approval, exported bundle and final passing test.
 
-- [ ] **Step 3: Run final repository checks and commit**
+- [x] **Step 3: Run final repository checks and commit**
 
 Run: `npm ci && npm test && npm run typecheck && npm run build && git status --short`
 Expected: all commands exit 0; status contains only deliberately untracked local runtime files ignored by `.gitignore` or is clean.

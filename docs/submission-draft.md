@@ -1,6 +1,6 @@
 # ReleaseRoom submission draft
 
-Status: draft. The public repository and genuine builder/verification evidence are available; the personal human approval and public demo recording are still required. The entrant completes registration and final submission personally.
+Status: draft. The public repository and completed live workflow evidence are available. The entrant completes registration and final submission personally.
 
 ## Title
 
@@ -37,8 +37,9 @@ This demonstration has one fictional case and trusts the operator's OS account, 
 ## Evidence to attach
 
 - Public repository: https://github.com/mosesfawole/releaseroom .
-- Demo video: pending recording/publication of the genuine Switch/Codex workflow.
+- Demo video: https://github.com/mosesfawole/releaseroom/releases/download/v0.1.0/releaseroom-demo.mp4 . This 110-second evidence walkthrough uses actual room screenshots and discloses the user-authorized approval relay.
+- Downloadable handoff: https://github.com/mosesfawole/releaseroom/releases/download/v0.1.0/releaseroom-handoff.zip .
 - Current checks: see `docs/evidence.md` for fresh-clone tests and exact observed results.
-- Live builder and independent verification: confirmed in `docs/evidence.md`. The exported handoff remains pending the personally sent human approval.
+- Live builder, independent verification, exact-hash approval and exported handoff: confirmed in `docs/evidence.md`. The user approved the exact hash in Codex and explicitly authorized the assistant to relay it from the local reviewer account; this is disclosed, without claiming the user physically typed in Mattermost.
 
 The official event page lists 7 November 2026, 11:59 PM IST as the deadline, equivalent to 19:29 CET. Verify the entry form before submitting: https://www.wemakedevs.org/hackathons/switch . The official rules prohibit automated registration/submission: https://www.wemakedevs.org/hackathons/switch/rules .

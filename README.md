@@ -2,6 +2,8 @@
 
 A bug report, a verified patch, and a human-approved handoff in one Switch room.
 
+[Watch the 110-second evidence walkthrough](https://github.com/mosesfawole/releaseroom/releases/download/v0.1.0/releaseroom-demo.mp4) · [Download the verified handoff](https://github.com/mosesfawole/releaseroom/releases/download/v0.1.0/releaseroom-handoff.zip)
+
 ReleaseRoom gives a Codex builder one small support-ticket bug to fix. A deterministic gatekeeper receives authenticated messages through Switch, runs the protected regression test, hashes the patch and evidence, and waits for the configured human to approve that exact hash. Approval exports a patch and review report.
 
 The gatekeeper uses no model. Switch supplies the room, authenticated sender identities, addressing, and the event stream. Without Switch, the live room workflow cannot run.
@@ -29,7 +31,7 @@ sequenceDiagram
 
 - Node.js 24 or newer, npm, and Git.
 - For WSL, keep the running demo clone and its `node_modules` on the Linux filesystem. The Windows-mounted drive was substantially slower in the recorded integration checks.
-- An official Switch server, agent controller, and connected messaging app. The live setup uses the official Console 0.40.1 controller bundle, Switch core 0.31.0, Ubuntu WSL, and Mattermost. The real builder and independent verification have run; the personal human approval is pending. See [evidence](docs/evidence.md) and the [recorded runtime setup](docs/local-runtime.md).
+- An official Switch server, agent controller, and connected messaging app. The completed live setup uses the official Console 0.40.1 controller bundle, Switch core 0.31.0, Ubuntu WSL, and Mattermost. The genuine builder, independent verification, user-authorized approval relay, and handoff export are recorded in [evidence](docs/evidence.md). See the [recorded runtime setup](docs/local-runtime.md).
 - A configured Codex builder using an existing provider allowance. Switch and the gatekeeper are local software; any model usage is governed by your provider.
 
 ## Build and check

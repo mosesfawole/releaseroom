@@ -10,6 +10,8 @@ The journal stores private sender IDs and test evidence. `.env` contains the gat
 
 This is not an OS sandbox or a signed attestation system. A malicious builder with the same filesystem privileges can rewrite Git history, alter ignored dependencies or the journal, replace running software, or race filesystem checks. The baseline, installed dependencies, operator, OS account, and Switch administrator are trusted. For untrusted code, use separate OS identities, a read-only harness, an isolated runner, and transactional durable storage before adapting the design to production.
 
+Sender authentication identifies the configured account; it does not attest which client physically typed a message. In the recorded demo, the user approved the exact hash in Codex and explicitly authorized the assistant to relay the approval through the reviewer account. That provenance is disclosed in the evidence and handoff note.
+
 Tests execute code in `src/tickets.ts`; they therefore have the permissions of the operator. Use the disposable demo clone with fictional data and no production credentials. No deployment or remote write occurs as part of verification or export.
 
 A stream gap pauses the journal until an operator reviews history and explicitly recovers. Process restarts subscribe at the stream head; new commands are required for events sent while offline. Room posting failures appear in sanitized CLI logs and may require reissuing a verification command with a new message ID. The local journal and exported bundle provide evidence if a delivery fails after a successful export.

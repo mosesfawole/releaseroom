@@ -38,8 +38,20 @@ Observed on 5 November 2026 in the official Switch 0.31.0 Compose stack, with Ma
 - At 09:35 CET, the builder changed only `src/tickets.ts` from `!==` to `===`, left the fix uncommitted, observed its regression test passing, and posted `@release-gatekeeper verify CASE-001` through Switch.
 - The connected gatekeeper independently ran the protected regression test and produced a passing review bundle with hash `d62a205d23a736cdeb8ba38dc7b2af61b375de8adc33a7745653109d220ed051`.
 
-The patch and verification are real live evidence. The human approval command has been drafted but left unsent for the entrant to send personally. No handoff export or final approval is claimed yet. The user-facing sanitized review contains the patch, exact hash, and actual test output; the private journal and credentials remain local.
+The user explicitly approved that exact hash in Codex with “Approve this hash and relay it.” At 09:43 CET, the assistant transmitted the drafted command from the local Mattermost reviewer account. This is an authorized relay: the evidence does not claim the user physically typed it in Mattermost. The gatekeeper accepted the configured authenticated account, matched the current hash, rechecked the repository, and exported `review.json`, `changes.patch`, and `HANDOFF.md`. The server contained one exact reviewer approval message and one export notification.
+
+The exported canonical bundle hash, patch bytes, and passing test evidence were independently checked. The exported patch then applied to a clean clone of the committed seeded baseline, where `npm ci` and `npm run verify:case` succeeded. The live fixed demo also passed all 22 tests (8.70 seconds), type checking, build, and `git diff --check`. Its only source change remained the expected uncommitted `src/tickets.ts` fix.
+
+The user-facing handoff preserves the three generated files unchanged and adds a separate approval-provenance note. Private journals, credentials, sender IDs, and raw logs are not published.
+
+![Real builder and independent verification, before approval](assets/approval-ready.png)
+
+![Authorized reviewer approval and completed export](assets/exported.png)
 
 The WSLg Console capture helper returned an unrelated window image, so setup uses the official Gateway and bundled headless controller instead. [Local runtime notes](local-runtime.md) describe the verified components and ports.
 
-No demo video, deployment, users, measured time savings, or production safety claim is made at this checkpoint.
+No deployment, users, measured time savings, or production safety claim is made.
+
+## Evidence package
+
+The [v0.1.0 release](https://github.com/mosesfawole/releaseroom/releases/tag/v0.1.0) contains the exported handoff ZIP and a 110-second evidence walkthrough. The video uses actual before-approval and after-export room screenshots, the exact patch, and captions describing the observed checks. It is an illustrated walkthrough, with the user-authorized approval relay disclosed.
