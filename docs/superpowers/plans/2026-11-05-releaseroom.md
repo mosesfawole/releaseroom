@@ -162,20 +162,20 @@ Commit: `feat: enforce hashed human approval`
 - Produces: `SwitchClient.connect(): Promise<void>`, `postMessage(roomId, content)`, and async event delivery for addressed room messages.
 - Consumes: `SWITCH_BASE_URL`, `SWITCH_AGENT_ID`, `SWITCH_AGENT_API_KEY`, `SWITCH_ROOM_ID`.
 
-- [ ] **Step 1: Write failing protocol tests against a local fake server**
+- [x] **Step 1: Write failing protocol tests against a local fake server**
 
 Use a real local HTTP/WebSocket test server. Assert bearer authorization, `/health`, WebSocket URL construction, ping/pong cursor handling, addressed-message delivery, ignored unaddressed messages, and reconnect-gap propagation.
 
-- [ ] **Step 2: Run protocol tests and confirm RED**
+- [x] **Step 2: Run protocol tests and confirm RED**
 
 Run: `npm test -- tests/switch-client.test.ts`
 Expected: FAIL because the client is missing.
 
-- [ ] **Step 3: Implement schemas and the minimal client**
+- [x] **Step 3: Implement schemas and the minimal client**
 
 Validate frames with Zod. Connect to `/agents/{agentId}/connection/ws`, pass the stable connection ID and room claim, reply to pings, and POST messages through `/agents/{agentId}/message` with bearer authorization. Surface `gap`, `cursor-expired`, network and non-2xx errors.
 
-- [ ] **Step 4: Run protocol tests and commit**
+- [x] **Step 4: Run protocol tests and commit**
 
 Run: `npm test -- tests/switch-client.test.ts && npm run typecheck`
 Commit: `feat: connect gatekeeper to Switch rooms`
