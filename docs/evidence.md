@@ -27,6 +27,19 @@ The Node archive's SHA-256 matched the [official Node distribution checksum](htt
 
 AgentRouter rejected the existing credential with HTTP 401. The user explicitly authorized using their existing Codex sign-in instead for the live builder demo. This supersedes the earlier AgentRouter-only constraint for that demo. No key or token is included in public evidence.
 
-## Live demonstration status
+## Live demonstration
 
-Pending: official Switch server health, real room transcript, genuine Codex builder action, personally sent human approval, and resulting live exported bundle. No live transcript, video, deployment, users, time savings, or production safety claim is made at this checkpoint.
+Observed on 5 November 2026 in the official Switch 0.31.0 Compose stack, with Mattermost 11.9.0 and the official controller from Console 0.40.1:
+
+- Switch `/health` returned HTTP 200. Gateway and Mattermost answered successfully.
+- The official controller precheck detected Codex 0.166.0 and reported `auth: ok`. The managed `release-builder` was running and attached.
+- At 09:34 CET, the reviewer posted the fictional CASE-001 bug report in the real `release-room` Mattermost channel.
+- The genuine Codex session initially encountered an EPERM subprocess-launch restriction, disclosed that no test result had been produced, and retried through its normal permission flow. It then reproduced the regression: selecting open tickets returned closed ticket T-2 instead of T-1.
+- At 09:35 CET, the builder changed only `src/tickets.ts` from `!==` to `===`, left the fix uncommitted, observed its regression test passing, and posted `@release-gatekeeper verify CASE-001` through Switch.
+- The connected gatekeeper independently ran the protected regression test and produced a passing review bundle with hash `d62a205d23a736cdeb8ba38dc7b2af61b375de8adc33a7745653109d220ed051`.
+
+The patch and verification are real live evidence. The human approval command has been drafted but left unsent for the entrant to send personally. No handoff export or final approval is claimed yet. The user-facing sanitized review contains the patch, exact hash, and actual test output; the private journal and credentials remain local.
+
+The WSLg Console capture helper returned an unrelated window image, so setup uses the official Gateway and bundled headless controller instead. [Local runtime notes](local-runtime.md) describe the verified components and ports.
+
+No demo video, deployment, users, measured time savings, or production safety claim is made at this checkpoint.

@@ -1,6 +1,6 @@
 # ReleaseRoom submission draft
 
-Status: draft. The public repository link, real Switch recording, and live evidence must be added before entry. The entrant completes registration and final submission personally.
+Status: draft. The public repository and genuine builder/verification evidence are available; the personal human approval and public demo recording are still required. The entrant completes registration and final submission personally.
 
 ## Title
 
@@ -36,9 +36,9 @@ This demonstration has one fictional case and trusts the operator's OS account, 
 
 ## Evidence to attach
 
-- Public repository: pending publication.
-- Demo video: pending genuine Switch/Codex run and recording.
+- Public repository: https://github.com/mosesfawole/releaseroom .
+- Demo video: pending recording/publication of the genuine Switch/Codex workflow.
 - Current checks: see `docs/evidence.md` for fresh-clone tests and exact observed results.
-- Live room evidence and exported bundle hash: pending the personally sent human approval.
+- Live builder and independent verification: confirmed in `docs/evidence.md`. The exported handoff remains pending the personally sent human approval.
 
 The official event page lists 7 November 2026, 11:59 PM IST as the deadline, equivalent to 19:29 CET. Verify the entry form before submitting: https://www.wemakedevs.org/hackathons/switch . The official rules prohibit automated registration/submission: https://www.wemakedevs.org/hackathons/switch/rules .
