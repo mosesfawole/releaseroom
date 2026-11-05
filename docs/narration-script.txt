@@ -1,0 +1,16 @@
+Synthetic English narration: Microsoft Hazel Desktop
+
+Scene 1
+Release Room turns a bug report into a verified patch and a human approved handoff, inside one shared Switch room.
+
+Scene 2
+This walkthrough shows actual screenshots from a live Switch and Mattermost run. The reviewer reported that selecting open support tickets returned closed tickets. A genuine Codex builder investigated the source and reproduced the failing regression test. Its first test launch hit a permission restriction, which it disclosed and retried through the normal permission flow. After reproducing the failure, it changed only the filter and asked the separate gatekeeper for independent verification.
+
+Scene 3
+Here is the exact patch. The filter compared each ticket's status using not equal. The builder replaced that with equal, so only tickets matching the requested status are returned. The protected regression test then passed.
+
+Scene 4
+The gatekeeper hashes the patch and test evidence. In this demonstration, the user approved that exact hash in Codex and explicitly authorized the assistant to relay the message through the local reviewer account. This provenance is disclosed. The gatekeeper authenticated the configured account, checked the current hash, rechecked the repository, and exported the review bundle, patch, and handoff notes.
+
+Scene 5
+All twenty two tests, type checking, and the build passed. The exported patch also passed from a clean seeded baseline. The source, evidence, and handoff are available on GitHub.
