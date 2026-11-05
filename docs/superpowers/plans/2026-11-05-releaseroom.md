@@ -128,24 +128,24 @@ Commit: `feat: add reproducible release verification case`
 - Produces: `approveBundle(state, request): ApprovalResult`.
 - `ReviewBundle` includes `caseId`, `diff`, `verification`, `createdAt`, and `hash`.
 
-- [ ] **Step 1: Write failing bundle tests**
+- [x] **Step 1: Write failing bundle tests**
 
 Assert a literal fixture creates the expected SHA-256 hash, paths outside the repository are rejected, and a failed verification cannot create a ready bundle.
 
-- [ ] **Step 2: Run bundle tests and confirm RED**
+- [x] **Step 2: Run bundle tests and confirm RED**
 
 Run: `npm test -- tests/bundles.test.ts`
 Expected: FAIL because bundle functions are missing.
 
-- [ ] **Step 3: Implement canonical serialization and bundle hashing**
+- [x] **Step 3: Implement canonical serialization and bundle hashing**
 
 Hash UTF-8 JSON with sorted keys and no volatile data other than the explicit `createdAt` input. Capture `git diff --binary -- src` using a fixed argument array, not a shell string.
 
-- [ ] **Step 4: Write failing approval tests**
+- [x] **Step 4: Write failing approval tests**
 
 Cover exact human sender acceptance, builder sender rejection, wrong human rejection, stale hash rejection, and duplicate message ID idempotency.
 
-- [ ] **Step 5: Implement approval state and run all tests**
+- [x] **Step 5: Implement approval state and run all tests**
 
 Use a JSON journal containing current bundle hashes, processed message IDs and exported bundle hashes. Approval requires `senderId === configuredHumanId` and exact case/hash match.
 Run: `npm test && npm run typecheck`
