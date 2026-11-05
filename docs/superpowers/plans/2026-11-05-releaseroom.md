@@ -193,24 +193,24 @@ Commit: `feat: connect gatekeeper to Switch rooms`
 - Consumes room messages `verify CASE-001` and `approve CASE-001 <sha256>`.
 - Produces room status messages and files under `artifacts/<caseId>/<hash>/`.
 
-- [ ] **Step 1: Write failing service tests**
+- [x] **Step 1: Write failing service tests**
 
 Use a real temporary Git repository and a small in-process Switch fake. Assert builder verification produces an approval request, a configured human approval exports once, changed diffs invalidate old approvals, and verification/provider errors remain visible.
 
-- [ ] **Step 2: Run service tests and confirm RED**
+- [x] **Step 2: Run service tests and confirm RED**
 
 Run: `npm test -- tests/gatekeeper-service.test.ts`
 Expected: FAIL because command parsing and service orchestration are missing.
 
-- [ ] **Step 3: Implement strict commands and orchestration**
+- [x] **Step 3: Implement strict commands and orchestration**
 
 Accept exact ASCII command forms, one known case, and fixed project paths. Export `review.json`, `changes.patch`, and `HANDOFF.md` only after approval. Redact bearer values from errors before posting.
 
-- [ ] **Step 4: Add the CLI and environment validation**
+- [x] **Step 4: Add the CLI and environment validation**
 
 The CLI validates environment variables, checks the clean harness manifest, loads the JSON journal, connects, and shuts down cleanly on SIGINT/SIGTERM.
 
-- [ ] **Step 5: Run the complete suite and commit**
+- [x] **Step 5: Run the complete suite and commit**
 
 Run: `npm test && npm run typecheck && npm run build`
 Commit: `feat: complete ReleaseRoom approval workflow`

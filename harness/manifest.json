@@ -1,6 +1,10 @@
 {
   "caseId": "CASE-001",
   "protectedFiles": {
-    "tests/tickets.test.ts": "f0e9c7d924fdc0a7883dc21fc513fe85201fb26f5a3a6645ff21911f7bb10a4c"
+    "tests/tickets.test.ts": "f0e9c7d924fdc0a7883dc21fc513fe85201fb26f5a3a6645ff21911f7bb10a4c",
+    "harness/verify-case.mjs": "ca40f79ac3cc8895d8eb65161e7b7496d922121689c9aa25fef10c8b5ca2039f",
+    "package.json": "2b829e4866111db3b7f01481e3931b2d222f547ae6fabedca4b7cdcbeec7081e",
+    "package-lock.json": "35dc6242c2f1eff2da5ef5a431594a94b31afbc16c87caf6e38911d8d20aa89a",
+    "tsconfig.json": "f0a71da264580815379082b9b961c567e15e255d1954c25d239602dce7ae70db"
   }
 }

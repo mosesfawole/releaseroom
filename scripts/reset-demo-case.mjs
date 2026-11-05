@@ -16,7 +16,7 @@ const targetRoot = await realpath(readRootArgument(process.argv.slice(2)));
 const destination = path.resolve(targetRoot, "src", "tickets.ts");
 const expectedPrefix = `${targetRoot}${path.sep}`;
 
-if (!destination.startsWith(expectedPrefix)) {
+if (!destination.startsWith(expectedPrefix) || await realpath(destination) !== destination) {
   throw new Error("Refusing to write outside the target project");
 }
 

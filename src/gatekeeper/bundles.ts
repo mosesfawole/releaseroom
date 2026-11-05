@@ -32,7 +32,7 @@ export async function createReviewBundle(
 
   const { stdout: diff } = await execFileAsync(
     "git",
-    ["diff", "--binary", "--", "src"],
+    ["diff", "HEAD", "--binary", "--", "src"],
     { cwd: repositoryRoot, encoding: "utf8", windowsHide: true },
   );
   const content = {

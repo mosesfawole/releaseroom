@@ -71,7 +71,7 @@ export class SwitchClient {
   }
 
   private async startConnection(): Promise<void> {
-    const healthResponse = await fetch(this.httpUrl("health"));
+    const healthResponse = await fetch(this.httpUrl("health"), { signal: AbortSignal.timeout(10_000) });
     if (!healthResponse.ok) {
       throw new SwitchHttpError(healthResponse.status, await healthResponse.text());
     }
@@ -89,6 +89,7 @@ export class SwitchClient {
       this.httpUrl(`agents/${encodeURIComponent(this.options.agentId)}/message`),
       {
         method: "POST",
+        signal: AbortSignal.timeout(10_000),
         headers: {
           Authorization: `Bearer ${this.options.apiKey}`,
           "Content-Type": "application/json",
@@ -117,7 +118,9 @@ export class SwitchClient {
     const socket = this.socket;
     if (socket?.readyState === WebSocket.OPEN) socket.close(1000, "client shutdown");
     else if (socket?.readyState === WebSocket.CONNECTING) socket.terminate();
-    await this.runPromise;
+    const deadline = setTimeout(() => socket?.terminate(), 3_000);
+    deadline.unref();
+    try { await this.runPromise; } finally { clearTimeout(deadline); }
   }
 
   private async connectionLoop(): Promise<void> {
@@ -139,6 +142,7 @@ export class SwitchClient {
     return new Promise<void>((resolve, reject) => {
       const socket = new WebSocket(this.webSocketUrl(), {
         headers: { Authorization: `Bearer ${this.options.apiKey}` },
+        handshakeTimeout: 10_000,
       });
       this.socket = socket;
       let confirmed = false;
@@ -146,6 +150,11 @@ export class SwitchClient {
       let protocolError: unknown = null;
       let refusal: { status: number; detail: unknown } | null = null;
       let processing = Promise.resolve();
+      const confirmationDeadline = setTimeout(() => {
+        protocolError = new SwitchProtocolError("Switch connection state timed out");
+        socket.terminate();
+      }, 10_000);
+      confirmationDeadline.unref();
 
       const settleAfterProcessing = (callback: () => void): void => {
         void processing.then(callback);
@@ -180,6 +189,7 @@ export class SwitchClient {
           .then(async () => {
             await this.handleFrame(parsed.data, () => {
               confirmed = true;
+              clearTimeout(confirmationDeadline);
               if (!this.connected) {
                 this.connected = true;
                 this.resolveConnected?.();
@@ -195,6 +205,7 @@ export class SwitchClient {
         transportError = error;
       });
       socket.on("close", (code, reason) => {
+        clearTimeout(confirmationDeadline);
         if (this.socket === socket) this.socket = null;
         settleAfterProcessing(() => {
           if (protocolError) reject(protocolError);

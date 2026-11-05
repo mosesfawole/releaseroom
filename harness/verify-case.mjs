@@ -26,7 +26,7 @@ const targetRoot = await realpath(readRootArgument(process.argv.slice(2)));
 
 for (const [relativePath, expectedHash] of Object.entries(manifest.protectedFiles)) {
   const absolutePath = path.resolve(targetRoot, relativePath);
-  if (!absolutePath.startsWith(`${targetRoot}${path.sep}`)) {
+  if (!absolutePath.startsWith(`${targetRoot}${path.sep}`) || await realpath(absolutePath) !== absolutePath) {
     writeResult({ caseId: manifest.caseId, passed: false, error: "protected_path_invalid" }, 2);
     process.exit();
   }
@@ -55,6 +55,8 @@ const verification = spawnSync(
   cwd: targetRoot,
   encoding: "utf8",
   env: { ...process.env, NO_COLOR: "1", FORCE_COLOR: "0" },
+  timeout: 45_000,
+  maxBuffer: 4 * 1024 * 1024,
   },
 );
 

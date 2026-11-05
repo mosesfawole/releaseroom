@@ -1,15 +1,19 @@
-import { mkdtemp, mkdir, readFile, symlink, writeFile } from "node:fs/promises";
+import { cp, mkdtemp, mkdir, readFile, rm, symlink, writeFile } from "node:fs/promises";
 import { spawnSync } from "node:child_process";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it } from "vitest";
 
 const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const roots: string[] = [];
+afterEach(async () => { for (const root of roots.splice(0)) await rm(root, { recursive: true, force: true }); });
 
 async function createFixture(): Promise<string> {
   const root = await mkdtemp(path.join(tmpdir(), "releaseroom-case-"));
+  roots.push(root);
+  for (const entry of ["harness", "package-lock.json"]) await cp(path.join(repositoryRoot, entry), path.join(root, entry), { recursive: true });
   await mkdir(path.join(root, "src"), { recursive: true });
   await mkdir(path.join(root, "tests"), { recursive: true });
   await writeFile(
@@ -58,7 +62,7 @@ describe("the deterministic demo case", () => {
     const passing = runScript("harness/verify-case.mjs", root);
     expect(passing.status).toBe(0);
     expect(JSON.parse(passing.stdout)).toMatchObject({ caseId: "CASE-001", passed: true });
-  });
+  }, 20_000);
 
   it("rejects a changed protected regression test", async () => {
     const root = await createFixture();
