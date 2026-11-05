@@ -28,6 +28,7 @@ sequenceDiagram
 ## Requirements
 
 - Node.js 24 or newer, npm, and Git.
+- For WSL, keep the running demo clone and its `node_modules` on the Linux filesystem. The Windows-mounted drive was substantially slower in the recorded integration checks.
 - An official Switch server and Console, plus a connected messaging app. The intended local demo uses Switch Console 0.40.1, bundled core 0.31.0, Ubuntu WSL, and Mattermost. A real runtime demonstration is still pending; see [evidence](docs/evidence.md).
 - A configured Codex builder using an existing provider allowance. Switch and the gatekeeper are local software; any model usage is governed by your provider.
 

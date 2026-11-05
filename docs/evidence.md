@@ -21,6 +21,8 @@ The service integration tests use real temporary Git repositories and the actual
 
 Installed and observed inside Ubuntu 26.04 WSL: Node.js 24.19.0, npm 11.17.0, Docker Engine 29.1.3, and Docker Compose 2.40.3. Docker responds as the normal WSL user. No Windows group change was used.
 
+An independent clone on WSL's native filesystem passed all 22 tests in 8.49 seconds, type checking, and build. The first WSL run on the Windows-mounted filesystem passed 21/22 tests but exceeded the demo integration test's 20-second limit (26.57 seconds). The native-filesystem run resolves that runtime concern; use a native Linux directory for the live demo. The demo clone currently resides under `/var/tmp/releaseroom-work/demo`.
+
 The Node archive's SHA-256 matched the [official Node distribution checksum](https://nodejs.org/dist/v24.19.0/SHASUMS256.txt). The intended Console is the [official Switch Console 0.40.1 release](https://github.com/sandbox-quantum/switch/releases/tag/switch-console-v0.40.1), which bundles Switch core 0.31.0.
 
 AgentRouter rejected the existing credential with HTTP 401. The user explicitly authorized using their existing Codex sign-in instead for the live builder demo. This supersedes the earlier AgentRouter-only constraint for that demo. No key or token is included in public evidence.
