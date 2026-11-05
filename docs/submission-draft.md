@@ -1,6 +1,6 @@
 # ReleaseRoom submission draft
 
-Status: draft. The public repository and completed live workflow evidence are available. The entrant completes registration and final submission personally.
+Status: submitted by the entrant on 5 November 2026 at 10:22 CET. WeMakeDevs displayed SUBMITTED, ReleaseRoom, Solo entry, and Best Business Workflow, with the repository and narrated YouTube video links. This file retains the prepared submission copy for reference; the exact submitted fields are in `submission-fields.json`.
 
 ## Title
 

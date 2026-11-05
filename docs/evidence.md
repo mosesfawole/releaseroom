@@ -57,3 +57,7 @@ No deployment, users, measured time savings, or production safety claim is made.
 The [v0.1.0 release](https://github.com/mosesfawole/releaseroom/releases/tag/v0.1.0) contains the exported handoff ZIP and a 110-second evidence walkthrough. The narrated edition adds synthetic English speech, synchronized to all five scenes, using a local Microsoft Hazel voice. The video uses actual before-approval and after-export room screenshots, the exact patch, and captions describing the observed checks. It is an illustrated walkthrough, with the user-authorized approval relay disclosed. The original silent edition is retained as a historical asset. The narration script is included in the repository and release.
 
 The narrated edition is also [available on YouTube](https://youtu.be/CgD3kSIa8W0), saved as unlisted at the user's request. YouTube reported the upload published and its copyright check found no issues. The entry form explicitly requires YouTube or Loom hosting, so the YouTube URL is the submission link.
+
+## Event submission
+
+The entrant personally completed the final WeMakeDevs submission. On 5 November 2026 at 10:22 CET, the site displayed SUBMITTED, ReleaseRoom, Solo entry, and Best Business Workflow. The submitted record linked the public repository and the narrated YouTube video. The assistant prepared the fields and verified the resulting confirmation; it did not press the final submission button. A receipt screenshot is retained locally. Exact submitted project fields are saved in `submission-fields.json`.
