@@ -55,3 +55,5 @@ No deployment, users, measured time savings, or production safety claim is made.
 ## Evidence package
 
 The [v0.1.0 release](https://github.com/mosesfawole/releaseroom/releases/tag/v0.1.0) contains the exported handoff ZIP and a 110-second evidence walkthrough. The narrated edition adds synthetic English speech, synchronized to all five scenes, using a local Microsoft Hazel voice. The video uses actual before-approval and after-export room screenshots, the exact patch, and captions describing the observed checks. It is an illustrated walkthrough, with the user-authorized approval relay disclosed. The original silent edition is retained as a historical asset. The narration script is included in the repository and release.
+
+The narrated edition is also [available on YouTube](https://youtu.be/CgD3kSIa8W0), saved as unlisted at the user's request. YouTube reported the upload published and its copyright check found no issues. The entry form explicitly requires YouTube or Loom hosting, so the YouTube URL is the submission link.

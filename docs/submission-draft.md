@@ -37,7 +37,8 @@ This demonstration has one fictional case and trusts the operator's OS account, 
 ## Evidence to attach
 
 - Public repository: https://github.com/mosesfawole/releaseroom .
-- Demo video: https://github.com/mosesfawole/releaseroom/releases/download/v0.1.0/releaseroom-demo-narrated.mp4 . This 110-second walkthrough includes synthetic English narration, uses actual room screenshots and discloses the user-authorized approval relay.
+- Demo video (YouTube, unlisted): https://youtu.be/CgD3kSIa8W0 . This 110-second walkthrough includes synthetic English narration, uses actual room screenshots and discloses the user-authorized approval relay.
+- Downloadable narrated MP4: https://github.com/mosesfawole/releaseroom/releases/download/v0.1.0/releaseroom-demo-narrated.mp4 .
 - Downloadable handoff: https://github.com/mosesfawole/releaseroom/releases/download/v0.1.0/releaseroom-handoff.zip .
 - Current checks: see `docs/evidence.md` for fresh-clone tests and exact observed results.
 - Live builder, independent verification, exact-hash approval and exported handoff: confirmed in `docs/evidence.md`. The user approved the exact hash in Codex and explicitly authorized the assistant to relay it from the local reviewer account; this is disclosed, without claiming the user physically typed in Mattermost.

@@ -2,7 +2,7 @@
 
 A bug report, a verified patch, and a human-approved handoff in one Switch room.
 
-[Watch the narrated 110-second walkthrough](https://github.com/mosesfawole/releaseroom/releases/download/v0.1.0/releaseroom-demo-narrated.mp4) · [Download the verified handoff](https://github.com/mosesfawole/releaseroom/releases/download/v0.1.0/releaseroom-handoff.zip)
+[Watch the narrated 110-second walkthrough](https://youtu.be/CgD3kSIa8W0) · [Download the narrated MP4](https://github.com/mosesfawole/releaseroom/releases/download/v0.1.0/releaseroom-demo-narrated.mp4) · [Download the verified handoff](https://github.com/mosesfawole/releaseroom/releases/download/v0.1.0/releaseroom-handoff.zip)
 
 ReleaseRoom gives a Codex builder one small support-ticket bug to fix. A deterministic gatekeeper receives authenticated messages through Switch, runs the protected regression test, hashes the patch and evidence, and waits for the configured human to approve that exact hash. Approval exports a patch and review report.
 
