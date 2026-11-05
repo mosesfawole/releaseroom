@@ -13,7 +13,7 @@
 ## Global Constraints
 
 - Target Flip the Switch **Best Business Workflow**; Switch must be central to the demonstrated workflow.
-- Use only the existing free AgentRouter/Codex allowance and local/free Switch services.
+- Use local/free Switch services and the existing Codex sign-in. On 5 November the user explicitly authorized this after AgentRouter returned HTTP 401.
 - Keep ClearCart and port 3000 untouched; use a separate repository and non-conflicting runtime ports.
 - Accept approval only from the configured human Switch participant ID and exact current bundle hash.
 - Never commit or print Switch keys, AgentRouter credentials, participant IDs, or private provider configuration.
@@ -228,15 +228,15 @@ Commit: `feat: complete ReleaseRoom approval workflow`
 **Interfaces:**
 - Produces exact setup, reset, runtime, room, verification, approval and recording steps for a fresh clone.
 
-- [ ] **Step 1: Write the documentation from verified commands**
+- [x] **Step 1: Write the documentation from verified commands**
 
 Explain the fictional data, fixed case, trust boundary, human approval identity, secrets, Switch version, WSL runtime, and limitations. Include no credential values or screenshots containing them.
 
-- [ ] **Step 2: Exercise the README from a fresh local clone**
+- [x] **Step 2: Exercise the README from a fresh local clone**
 
 Run `npm ci`, `npm test`, `npm run typecheck`, `npm run build`, `npm run demo:reset`, and the documented restore command. Record the actual output in `docs/evidence.md`.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 Commit: `docs: add ReleaseRoom setup and demo guide`
 
