@@ -8,8 +8,10 @@
   },
   "scripts": {
     "build": "tsc",
+    "demo:reset": "node scripts/reset-demo-case.mjs --root .",
     "test": "vitest run",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "verify:case": "node harness/verify-case.mjs --root ."
   },
   "dependencies": {
     "ws": "^8.18.3",

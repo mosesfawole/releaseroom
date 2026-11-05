@@ -1,0 +1,6 @@
+{
+  "caseId": "CASE-001",
+  "protectedFiles": {
+    "tests/tickets.test.ts": "f0e9c7d924fdc0a7883dc21fc513fe85201fb26f5a3a6645ff21911f7bb10a4c"
+  }
+}

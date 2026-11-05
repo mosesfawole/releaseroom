@@ -91,24 +91,24 @@ Commit: `feat: add support ticket filter contract`
 - Produces: `npm run demo:reset` and `npm run verify:case`.
 - `verify:case` prints JSON `{ caseId, passed, command, exitCode, stdout, stderr }` and exits nonzero on failure.
 
-- [ ] **Step 1: Write a failing integration test for reset and verification**
+- [x] **Step 1: Write a failing integration test for reset and verification**
 
-The test copies the project fixture to a temporary directory, runs the reset script, asserts `verify:case` reports `passed: false`, restores the correct `src/tickets.ts`, and asserts `passed: true`. It also changes the harness manifest and asserts verification rejects the altered harness.
+The test copies the project fixture to a temporary directory, runs the reset script, asserts `verify:case` reports `passed: false`, restores the correct `src/tickets.ts`, and asserts `passed: true`. It also changes the protected regression test and asserts verification rejects the altered harness input.
 
-- [ ] **Step 2: Run the integration test and confirm RED**
+- [x] **Step 2: Run the integration test and confirm RED**
 
 Run: `npm test -- tests/demo-case.test.ts`
 Expected: FAIL because reset and verification scripts do not exist.
 
-- [ ] **Step 3: Implement the seeded bug and reset script**
+- [x] **Step 3: Implement the seeded bug and reset script**
 
 The seeded implementation deliberately uses `ticket.status !== status`. `reset-demo-case.mjs` accepts only a target root beneath the current repository and copies only `demo/seeded-bug/tickets.ts` to `src/tickets.ts`.
 
-- [ ] **Step 4: Implement the verification harness**
+- [x] **Step 4: Implement the verification harness**
 
 `verify-case.mjs` checks SHA-256 hashes of the allowlisted test and harness files from `harness/manifest.json`, then runs exactly `npm test -- tests/tickets.test.ts`. It never accepts an arbitrary command from input.
 
-- [ ] **Step 5: Run the test suite and commit**
+- [x] **Step 5: Run the test suite and commit**
 
 Run: `npm test -- tests/demo-case.test.ts && npm test`
 Expected: all tests pass.
